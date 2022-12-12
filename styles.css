@@ -1,0 +1,58 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    align-content: center;
+    background-color: black;
+    justify-content: center;
+    display: flex;
+}
+:root {
+    --view-width: 98vw;
+    --view-height: 97vh;
+}
+.container {
+    border-radius: 25px;
+    width: var(--view-width);
+    height: var(--view-height);
+    background-color: red;
+    border: 2px solid gold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+.bottom-container {
+    display: flex;
+    justify-content: space-between;
+}
+.title {
+    color:darkgoldenrod;
+    font-family: 'Brush Script MT', cursive;
+    font-style: italic;
+    font-size: 3em;
+}
+
+button.left-button, 
+button.right-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    margin: 20px;
+}
+
+.display-container {
+    display: grid;
+    width: calc(var(--view-width) - 30px);
+    height: calc(var(--view-height) - 120px);
+    justify-items: center;
+    align-content: center;
+}
+
+
+
+.cell {
+    background-color: antiquewhite;
+}
