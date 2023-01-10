@@ -1,23 +1,34 @@
-const displayContainer = document.getElementById('displayContainer');
 const display = document.getElementById('display');
+const container = document.getElementById('container')
 
+let dimension;
 let resolution = 16;
+
+setAspect();
 
 createGrid(resolution);
 
+function setAspect () {
+    if (window.innerWidth>window.innerHeight) {
+        display.style.width = `${container.clientHeight*0.8}px`
+        display.style.height = `${container.clientHeight*0.8}px`
+    } else {
+        display.style.width = `${container.clientWidth*0.8}px`
+        display.style.height = `${container.clientWidth*0.8}px`
+        container.style.height = `${container.clientWidth+100}px`
+    }
+}
 function createGrid(resolution) {
     display.style.display = 'grid';
-    for(let i=0; i<resolution; i++) {
-        display.style.gridTemplateColumns += ' auto'
-        for(let j=0; j<resolution; j++) {
-            const cell = document.createElement('div');
-            cell.classList.add('cell');
-            let cellWidth = (displayContainer.clientWidth/resolution);
-            cell.style.width = `${cellWidth}px`;
-            cell.style.height = `${cellWidth}px`;
-            display.appendChild(cell);
-        }
+    display.style.gridTemplateColumns = `repeat(${resolution}, 1fr)`
+    display.style.gridTemplateRows = `repeat(${resolution}, 1fr)`
+
+    for (let i = 0; i<resolution*resolution; i++) {
+        let cell = document.createElement('div');
+        cell.classList.add('cell');
+        display.insertAdjacentElement('beforeEnd', cell);
     }
+    
     const cells = document.getElementsByClassName('cell');
     for (let i = 0; i<cells.length; i++) {
         cells[i].addEventListener('mouseenter', function(e) {
@@ -31,11 +42,11 @@ restartButton.addEventListener('click', function() {
     display.innerHTML = '';
     display.style.gridTemplateColumns = ''
     resolution = prompt('how many squares per side?(10-50)');
-    if ((resolution<51) && (resolution>9)) {
+    if ((resolution<100) && (resolution>2)) {
         createGrid(resolution)
     } else { 
-        alert(`RESOLUTION MUST BE BELOW 50!!!
-        (and above 10)
+        alert(`RESOLUTION MUST BE BELOW 100!!!
+        (and above 2)
         please click reset`)
     };
 });
