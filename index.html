@@ -6,14 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <style> @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap'); </style>
 </head>
 <body>
     <div class="container" id="container">
-        <div class="title" id="title">Jon's "Etch-A-Sketch"</div>
-        <div class="display" id="display"></div>            
-        <div class="button-container">
-            <button class="left-button" id="leftButton"><span class="reset-button-text">reset</span></button>
-            <button class="right-button" id="rightButton"></button>
+        <div class="title" id="title">Jon's "Etch-A-Bit"</div>
+        <div class="button-container" id="buttonContainer">
+            <button class="left-button" id="leftButton">reset</button>
+            <div class="display-container" id="displayContainer">
+                <div class="display" id="display"></div>
+            </div>
+            <button class="right-button" id="rightButton">fancy</button>
         </div>
     </div>
     <script src="etchASketch.js"></script>

@@ -20,27 +20,43 @@ body {
 .title {
     font-size: 7vw;
     color:gold;
-    font-family: 'Brush Script MT', cursive;
+    font-family: 'Silkscreen', cursive;
     font-style: italic;
     text-align: center;
 }
 
 .button-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    position: relative;
 }
 
 button.left-button, 
 button.right-button {
-    padding: 5%;
-    width: 12%;
+    padding: 4%;
+    width: 10%;
     min-width: 50px;
     max-width: 120px;
+    max-height: 120px;
     border-radius: 100%;
-    margin: 5%;
     text-decoration: none;
     cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.left-button {
+    left: 2%;
+}
+
+.right-button {
+    right: 2%;
+}
+
 .reset-button-text {
 }
 

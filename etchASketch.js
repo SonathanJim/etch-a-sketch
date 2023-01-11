@@ -1,5 +1,7 @@
 const display = document.getElementById('display');
 const container = document.getElementById('container')
+const buttonContainer = document.getElementById("buttonContainer");
+const displayContainer = document.getElementById("displayContainer");
 
 let dimension;
 let resolution = 16;
@@ -50,3 +52,35 @@ restartButton.addEventListener('click', function() {
         please click reset`)
     };
 });
+
+
+// MOVE buttonContainer DEPENDING ON SCREEN WIDTH
+function movePosition(){
+	// get window width
+	const windowWidth = document.documentElement.clientWidth;
+	// positioning if statement
+	if(windowWidth < 800){
+		// if below 800px insert after the title and above paragraph
+        container.insertBefore(displayContainer, container.lastElementChild);
+	} else {
+		// if above 800px move imageHold (sidebar loctaction)
+		buttonContainer.insertBefore(displayContainer, buttonContainer.lastChild);
+	}
+}
+
+// check document is ready
+const domReady = function(callback) {
+	document.readyState === "interactive" || document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+};
+
+// on document ready 
+domReady(function() {
+	// run move function	
+	movePosition()
+});
+
+// on window resize
+window.onresize = function(event) {
+	// run move function
+   movePosition()
+};
