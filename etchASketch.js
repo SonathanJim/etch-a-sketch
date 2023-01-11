@@ -33,7 +33,7 @@ function createGrid(resolution) {
     
     const cells = document.getElementsByClassName('cell');
     for (let i = 0; i<cells.length; i++) {
-        cells[i].addEventListener('mouseenter', function(e) {
+        cells[i].addEventListener('pointerenter', function(e) {
             e.target.classList.add('cell-hovered');
     });
     }
@@ -43,8 +43,8 @@ const restartButton = document.getElementById('leftButton');
 restartButton.addEventListener('click', function() {
     display.innerHTML = '';
     display.style.gridTemplateColumns = ''
-    resolution = prompt('how many squares per side?(10-50)');
-    if ((resolution<100) && (resolution>2)) {
+    resolution = prompt('how many squares per side?(2-100)');
+    if ((resolution<101) && (resolution>1)) {
         createGrid(resolution)
     } else { 
         alert(`RESOLUTION MUST BE BELOW 100!!!
